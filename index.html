@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>LiveStream Feature</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    
+</head>
+<style>
+    body {
+        color: white;
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+
+    * {
+        font-family: "Space Grotesk", sans-serif;
+        margin: 0px;
+        border: 0px;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    p {
+        text-align: center;
+    }
+    .twitchPlayer {
+        display: flex;
+        width: 100%;
+
+    }
+    #twitch-embed{
+        display: flex;
+        justify-content: center;
+    }
+    #twitch-embed iframe {
+        width: 95vw;
+        height: 56vw;
+    }
+
+    .title{
+        margin-top: 32px;
+        margin-bottom: 32px;
+    }
+    #boomsIframe{
+
+        width: 90vw;
+        height: 100vh;
+    }
+</style>
+
+<body>
+
+    <div class="title">
+        <h1>
+            Venha acompanhar as operações AO VIVO!
+        </h1>
+        <h3></h3>
+    </div>
+
+    <div class="twitchPlayer">
+        <div id="twitch-embed"></div>
+
+    </div>
+
+    <!-- Load the Twitch embed script -->
+    <script src="https://player.twitch.tv/js/embed/v1.js"></script>
+
+    <div class="box">
+        <p> Podemos Construír o que quisermos aqui em baixo! </p>
+    </div>
+    <iframe id="boomsIframe" src="https://www.boombets.com/"></iframe>
+    <!-- Create a Twitch.Player object. This will render within the placeholder div -->
+    <script type="text/javascript">
+        new Twitch.Player("twitch-embed", {
+            channel: "jonvlogs"
+        });
+    </script>
+</body>
+
+</html>
