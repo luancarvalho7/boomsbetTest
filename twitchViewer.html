@@ -23,7 +23,6 @@
     flex-direction: column;
   }
 
-
   * {
     font-family: "Space Grotesk", sans-serif;
     margin: 0px;
@@ -41,7 +40,6 @@
   .twitchPlayer {
     display: flex;
     width: 100%;
-
   }
 
   #twitch-embed {
@@ -56,10 +54,8 @@
 </style>
 
 <body>
-
   <div class="twitchPlayer">
     <div id="twitch-embed"></div>
-
   </div>
 
   <!-- Load the Twitch embed script -->
@@ -67,9 +63,21 @@
 
   <!-- Create a Twitch.Player object. This will render within the placeholder div -->
   <script type="text/javascript">
+    // Function to get URL parameter
+    function getParameterByName(name) {
+      name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+      var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+      var results = regex.exec(location.search);
+      return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    // Get the 'channel' parameter from the URL
+    var channel = getParameterByName('channel') || 'jonvlogs'; // Default to 'jonvlogs' if no parameter is found
+
+    // Create the Twitch Player
     new Twitch.Player("twitch-embed", {
-            channel: "jonvlogs"
-        });
+      channel: channel
+    });
   </script>
 </body>
 
